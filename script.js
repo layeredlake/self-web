@@ -152,15 +152,16 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(draw);
   }
 
-  // === Modal Logic for Sponsorship ===
-  const sponsorBtn = document.getElementById("open-sponsor-footer");
+  // === Modal Logic for Sponsorship（頁首按鈕、頁尾連結共用） ===
   const modalOverlay = document.getElementById("sponsor-modal");
   const closeModal = document.getElementById("close-modal");
 
-  if (sponsorBtn && modalOverlay && closeModal) {
-    sponsorBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      modalOverlay.classList.add("active");
+  if (modalOverlay && closeModal) {
+    document.querySelectorAll(".js-open-sponsor-modal").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        modalOverlay.classList.add("active");
+      });
     });
 
     closeModal.addEventListener("click", () => {

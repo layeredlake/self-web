@@ -27,9 +27,16 @@ window.SITE_CONTENT = {
     title: "支持創作",
     body:
       "如果您喜歡我，我的創作，或是我描述的未來，歡迎透過以下方式贊助一杯咖啡，這會成為我持續創作的動力！",
-    qrPlaceholder: "[ 收款 QR Code 預定地 ]",
+    /** 收款 QR 圖檔路徑（頁首列與贊助彈窗共用） */
+    qrImageSrc: "圖片/qr.ioi.tw-3.png",
+    qrAlt: "掃描 QR Code 收款／轉帳",
+    /** 頁首收款列左側說明文字 */
+    topBarHint: "收款碼 · 掃描即可支持",
+    /** 若未設定 qrImageSrc，彈窗內會顯示此提示 */
+    qrPlaceholder: "[ 請設定 qrImageSrc 圖檔路徑 ]",
     bankIntro: "或使用銀行匯款：",
-    bankAccount: "中國信託 822-1234-5678-900",
+    /** 若銀行別不同請自行修改前綴 */
+    bankAccount: "中國信託（822）901566509364",
   },
 
   /** 各頁 meta 與 DOM 對應（apply-page-content.js） */

@@ -4,13 +4,44 @@ const nav = C.nav || {};
 const footer = C.footer || {};
 const sponsorModal = C.sponsorModal || {};
 
+function escAttr(s) {
+  return String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;")
+    .replace(/</g, "&lt;");
+}
+
+function escHtml(s) {
+  return String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+const sponsorQrBlock =
+  sponsorModal.qrImageSrc && String(sponsorModal.qrImageSrc).trim()
+    ? `<div class="sponsor-qr sponsor-qr--image sans-font"><img src="${escAttr(
+        sponsorModal.qrImageSrc
+      )}" alt="${escAttr(sponsorModal.qrAlt || "收款 QR Code")}" class="sponsor-qr-img" width="220" height="220" loading="lazy" decoding="async"></div>`
+    : `<div class="sponsor-qr sponsor-qr--empty sans-font"><span class="sponsor-qr-fallback">${escAttr(
+        sponsorModal.qrPlaceholder ?? "[ 請將 QR 圖檔放到 content 設定的路徑 ]"
+      )}</span></div>`;
+
 const layoutCanvas = `
   <canvas id="bg-canvas"></canvas>
 `;
 
+const headerQrImg =
+  sponsorModal.qrImageSrc && String(sponsorModal.qrImageSrc).trim()
+    ? `<img src="${escAttr(sponsorModal.qrImageSrc)}" alt="${escAttr(
+        sponsorModal.qrAlt || "收款碼"
+      )}" class="header-sponsor-qr" width="64" height="64" loading="eager" decoding="async">`
+    : "";
+
 const layoutHeader = `
   <header class="site-header" id="header">
-    <div class="container header-container">
+    <div class="container header-main-row">
       <a href="index.html" class="logo title-font" style="color:var(--text-primary);">${brand.logoMark ?? "日誌集."}</a>
       <nav class="nav-links sans-font">
         <a href="about.html" class="nav-link">${nav.about ?? "關於我"}</a>
@@ -18,13 +49,26 @@ const layoutHeader = `
         <a href="articles.html" class="nav-link">${nav.articles ?? "文章"}</a>
       </nav>
     </div>
+    <div class="header-sponsor-row sans-font">
+      <div class="container header-sponsor-inner">
+        ${headerQrImg}
+        <div class="header-sponsor-text">
+          <span class="header-sponsor-hint">${escHtml(
+            sponsorModal.topBarHint || "掃描收款碼 · 歡迎贊助"
+          )}</span>
+          <button type="button" class="btn-primary header-sponsor-btn js-open-sponsor-modal">
+            <i class="ph ph-coffee"></i> ${footer.sponsorCta ?? "贊助此專案"}
+          </button>
+        </div>
+      </div>
+    </div>
   </header>
 `;
 
 const layoutFooter = `
   <footer class="site-footer sans-font">
     <div style="margin-bottom: 2.5rem;">
-      <a href="#" id="open-sponsor-footer" class="btn-primary" style="font-size: 0.9rem; padding: 0.6rem 1.25rem; background: var(--glass-bg); color: var(--text-primary); border: 1px solid rgba(0,0,0,0.08);">
+      <a href="#" id="open-sponsor-footer" class="btn-primary js-open-sponsor-modal" style="font-size: 0.9rem; padding: 0.6rem 1.25rem; background: var(--glass-bg); color: var(--text-primary); border: 1px solid rgba(0,0,0,0.08);">
         <i class="ph ph-coffee"></i> ${footer.sponsorCta ?? "贊助此專案"}
       </a>
     </div>
@@ -40,9 +84,7 @@ const layoutFooter = `
         ${sponsorModal.body ?? "如果您喜歡我的文章與靈感，歡迎透過以下方式贊助一杯咖啡，這會成為我持續創作的動力！"}
       </p>
       
-      <div class="sponsor-qr sans-font" style="color: #999;">
-        ${sponsorModal.qrPlaceholder ?? "[ 收款 QR Code 預定地 ]"}
-      </div>
+      ${sponsorQrBlock}
       
       <p class="sans-font" style="font-size: 0.95rem; font-weight: 500; color: var(--text-secondary);">
         ${sponsorModal.bankIntro ?? "或使用銀行匯款："}<br>
