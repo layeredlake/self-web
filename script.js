@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     .from(".nav-link", { y: -20, opacity: 0, duration: 1, stagger: 0.1 }, 0.2);
     
   // Check if hero elements exist (home page)
+  if (document.querySelector(".home-sponsor-cta")) {
+    tl.from(".home-sponsor-cta", { y: -14, opacity: 0, duration: 0.75 }, 0.32);
+  }
   if (document.querySelector(".hero-tag")) {
     tl.from(".hero-tag", { y: 30, opacity: 0, duration: 1 }, 0.4)
       .from(".hero-title", { y: 40, opacity: 0, duration: 1.2 }, 0.5)

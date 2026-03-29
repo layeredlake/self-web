@@ -25,7 +25,7 @@ body {
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  scroll-padding-top: 8.75rem;
+  scroll-padding-top: 5.5rem;
 }
 
 a, button, .btn-primary, input[type="submit"] {
@@ -52,89 +52,21 @@ a:hover { color: var(--text-secondary); }
   position: relative;
 }
 
-/* Header（上：導覽；下：收款碼 + 贊助按鈕） */
+/* Header */
 .site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: fixed; top: 0; left: 0; right: 0;
+  padding: 1.5rem 0;
+  padding-top: max(1.5rem, env(safe-area-inset-top, 0px));
   z-index: 100;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  padding-top: max(1.25rem, env(safe-area-inset-top, 0px));
-  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .site-header.scrolled {
   background: var(--glass-bg);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  padding-top: max(0.6rem, env(safe-area-inset-top, 0px));
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03); padding: 1rem 0;
+  padding-top: max(1rem, env(safe-area-inset-top, 0px));
 }
-.site-header.scrolled .header-main-row {
-  padding-bottom: 0.45rem;
-}
-.site-header.scrolled .header-sponsor-row {
-  padding-top: 0.25rem;
-  padding-bottom: 0.55rem;
-}
-.header-main-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding-bottom: 0.5rem;
-}
-.header-sponsor-row {
-  padding-top: 0.35rem;
-  padding-bottom: 0.75rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  background: rgba(248, 247, 245, 0.65);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
-.site-header.scrolled .header-sponsor-row {
-  background: transparent;
-  border-top-color: rgba(0, 0, 0, 0.05);
-}
-.header-sponsor-inner {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem 1.1rem;
-  flex-wrap: wrap;
-}
-.header-sponsor-qr {
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: #fff;
-  flex-shrink: 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-.header-sponsor-text {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem 1rem;
-  flex-wrap: wrap;
-  flex: 1;
-  min-width: 0;
-  justify-content: flex-end;
-}
-.header-sponsor-hint {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  letter-spacing: 0.04em;
-  line-height: 1.35;
-  text-align: right;
-}
-.header-sponsor-btn {
-  font-size: 0.82rem !important;
-  padding: 0.5rem 1.15rem !important;
-  letter-spacing: 0.04em !important;
-}
+.header-container { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
 .logo { font-size: 1.25rem; font-weight: 700; letter-spacing: 2px; flex-shrink: 0; }
 .nav-links { display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
 .nav-link {
@@ -186,6 +118,21 @@ a:hover { color: var(--text-secondary); }
   box-shadow: 0 16px 50px var(--glass-shadow);
 }
 
+/* 首頁：導覽列下方的贊助按鈕（僅 index.html） */
+.home-sponsor-anchor {
+  position: relative;
+  z-index: 10;
+  padding-top: max(4.75rem, calc(3.25rem + env(safe-area-inset-top, 0px)));
+  padding-bottom: 0.35rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.home-sponsor-cta {
+  font-size: 0.88rem !important;
+  padding: 0.6rem 1.35rem !important;
+  letter-spacing: 0.06em !important;
+}
+
 /* Hero Section */
 .hero-section {
   min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
@@ -205,9 +152,7 @@ a:hover { color: var(--text-secondary); }
 }
 
 .hero-content {
-  position: relative;
-  z-index: 10;
-  padding-top: max(6.5rem, 7vh);
+  position: relative; z-index: 10; padding-top: 5vh;
 }
 .hero-tag {
   color: var(--text-secondary); font-weight: 500; letter-spacing: 2px;
@@ -470,26 +415,13 @@ a.project-store-image-link:focus-visible {
 .article-row-meta { font-size: 0.85rem; color: var(--text-secondary); letter-spacing: 1px; text-transform: uppercase; }
 
 @media (max-width: 768px) {
-  html { scroll-padding-top: 10rem; }
-
-  .header-sponsor-inner {
+  .home-sponsor-anchor {
     justify-content: center;
+    padding-top: max(4.5rem, calc(3rem + env(safe-area-inset-top, 0px)));
   }
-  .header-sponsor-text {
-    justify-content: center;
+  .home-sponsor-cta {
     width: 100%;
-  }
-  .header-sponsor-hint {
-    text-align: center;
-    width: 100%;
-    font-size: 0.75rem;
-  }
-  .header-sponsor-qr {
-    width: 52px;
-    height: 52px;
-  }
-  .header-sponsor-btn {
-    width: 100%;
+    max-width: 280px;
     justify-content: center;
   }
 

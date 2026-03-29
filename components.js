@@ -12,13 +12,6 @@ function escAttr(s) {
     .replace(/</g, "&lt;");
 }
 
-function escHtml(s) {
-  return String(s ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-}
-
 const sponsorQrBlock =
   sponsorModal.qrImageSrc && String(sponsorModal.qrImageSrc).trim()
     ? `<div class="sponsor-qr sponsor-qr--image sans-font"><img src="${escAttr(
@@ -32,35 +25,15 @@ const layoutCanvas = `
   <canvas id="bg-canvas"></canvas>
 `;
 
-const headerQrImg =
-  sponsorModal.qrImageSrc && String(sponsorModal.qrImageSrc).trim()
-    ? `<img src="${escAttr(sponsorModal.qrImageSrc)}" alt="${escAttr(
-        sponsorModal.qrAlt || "收款碼"
-      )}" class="header-sponsor-qr" width="64" height="64" loading="eager" decoding="async">`
-    : "";
-
 const layoutHeader = `
   <header class="site-header" id="header">
-    <div class="container header-main-row">
+    <div class="container header-container">
       <a href="index.html" class="logo title-font" style="color:var(--text-primary);">${brand.logoMark ?? "日誌集."}</a>
       <nav class="nav-links sans-font">
         <a href="about.html" class="nav-link">${nav.about ?? "關於我"}</a>
         <a href="index.html#projects" class="nav-link">${nav.projects ?? "開發應用"}</a>
         <a href="articles.html" class="nav-link">${nav.articles ?? "文章"}</a>
       </nav>
-    </div>
-    <div class="header-sponsor-row sans-font">
-      <div class="container header-sponsor-inner">
-        ${headerQrImg}
-        <div class="header-sponsor-text">
-          <span class="header-sponsor-hint">${escHtml(
-            sponsorModal.topBarHint || "掃描收款碼 · 歡迎贊助"
-          )}</span>
-          <button type="button" class="btn-primary header-sponsor-btn js-open-sponsor-modal">
-            <i class="ph ph-coffee"></i> ${footer.sponsorCta ?? "贊助此專案"}
-          </button>
-        </div>
-      </div>
     </div>
   </header>
 `;
@@ -69,7 +42,7 @@ const layoutFooter = `
   <footer class="site-footer sans-font">
     <div style="margin-bottom: 2.5rem;">
       <a href="#" id="open-sponsor-footer" class="btn-primary js-open-sponsor-modal" style="font-size: 0.9rem; padding: 0.6rem 1.25rem; background: var(--glass-bg); color: var(--text-primary); border: 1px solid rgba(0,0,0,0.08);">
-        <i class="ph ph-coffee"></i> ${footer.sponsorCta ?? "贊助此專案"}
+        <i class="ph ph-coffee"></i> ${footer.sponsorCta ?? "贊助我"}
       </a>
     </div>
     <p>${footer.copyright ?? "© 2026. Designed with premium paper aesthetics."}</p>

@@ -19,7 +19,7 @@ window.SITE_CONTENT = {
   },
 
   footer: {
-    sponsorCta: "贊助此專案",
+    sponsorCta: "贊助我",
     copyright: "© 2026. Designed with premium paper aesthetics.",
   },
 
@@ -30,8 +30,6 @@ window.SITE_CONTENT = {
     /** 收款 QR 圖檔路徑（頁首列與贊助彈窗共用） */
     qrImageSrc: "圖片/qr.ioi.tw-3.png",
     qrAlt: "掃描 QR Code 收款／轉帳",
-    /** 頁首收款列左側說明文字 */
-    topBarHint: "收款碼 · 掃描即可支持",
     /** 若未設定 qrImageSrc，彈窗內會顯示此提示 */
     qrPlaceholder: "[ 請設定 qrImageSrc 圖檔路徑 ]",
     bankIntro: "或使用銀行匯款：",

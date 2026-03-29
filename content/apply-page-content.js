@@ -62,4 +62,16 @@
       a.setAttribute("href", featured.appStoreUrl);
     });
   }
+
+  /** 首頁贊助按鈕文字與 footer.sponsorCta 同步 */
+  if (page === "index" && C.footer && C.footer.sponsorCta) {
+    const homeBtn = document.querySelector(".home-sponsor-cta");
+    if (homeBtn) {
+      const label = String(C.footer.sponsorCta)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+      homeBtn.innerHTML = `<i class="ph ph-coffee"></i> ${label}`;
+    }
+  }
 })();
