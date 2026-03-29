@@ -68,7 +68,7 @@ window.SITE_CONTENT = {
 
       elements: [
         [".hero-tag", "html", "Developer & Creator"],
-        [".hero-title", "html", "我是羅謙紹 <br>& 這是我眼中的世界。"],
+        [".hero-title", "html", "你好，<br>我是羅謙紹。"],
         [
           ".hero-subtitle",
           "html",
