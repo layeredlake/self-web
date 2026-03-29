@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-page="index">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>設計與開發日誌 | 個人空間</title>
+  <meta name="description" content="這是一個紀錄日常、開發作品與 AI 實踐的個人空間。">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+  <!-- 共用背板與導覽列 -->
+  <div id="layout-canvas"></div>
+  <div id="layout-header"></div>
+
+  <!-- Hero 區塊：重點介紹與訂閱功能 -->
+  <section class="hero-section" id="about">
+    <div class="hero-bg-wrapper">
+      <img src="圖片/影像.png" class="hero-bg-image" alt="Atmospheric Background">
+      <div class="hero-bg-mask"></div>
+    </div>
+    
+    <div class="container hero-content">
+      <p class="hero-tag sans-font">Developer & Creator</p>
+      <h1 class="title-font hero-title">編寫邏輯 <br>& 創造體驗。</h1>
+      <p class="hero-subtitle">
+        你好，這是我分享靈感與技術的專屬空間。<br>
+        如果您對開發日誌、AI 應用或是未來的實驗產品感興趣，歡迎留下您的 Email 追蹤最新動態。
+      </p>
+      
+      <div class="hero-actions">
+        <!-- 首頁英雄區：加入電子郵件訂閱表單 -->
+        <form action="https://formspree.io/f/xnjojoyz" method="POST" class="subscribe-form sans-font">
+          <input type="email" name="_replyto" placeholder="輸入 Email 以獲得最新發佈通知..." required class="subscribe-input">
+          <button type="submit" class="btn-primary subscribe-btn">
+            <span>加入訂閱</span> <i class="ph ph-envelope-simple"></i>
+          </button>
+        </form>
+
+        <!-- 聯絡與社群（網址與信箱請改 content/zh-TW.js → pages.index.indexContact） -->
+        <div class="hero-connect sans-font">
+          <p class="hero-connect-label">聯絡與社群</p>
+          <div class="hero-social-row">
+            <a class="hero-social-link hero-social-email" href="#">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>
+              <span>Gmail</span>
+            </a>
+            <a class="hero-social-link hero-social-ig" href="#" target="_blank" rel="noopener noreferrer">
+              <i class="ph ph-instagram-logo" aria-hidden="true"></i>
+              <span>Instagram</span>
+            </a>
+            <a class="hero-social-link hero-social-threads" href="#" target="_blank" rel="noopener noreferrer">
+              <i class="ph ph-threads-logo" aria-hidden="true"></i>
+              <span>Threads</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects 區塊 (新第二頁)：開發作品展示 -->
+  <section class="projects-section container" id="projects" style="padding-top: 4rem;">
+    <div class="section-header">
+      <div>
+        <h2 class="title-font section-title">開發實驗與應用</h2>
+        <p class="section-subtitle">那些我在深夜裡敲打出來的數位產品。</p>
+      </div>
+      <i class="ph ph-code" style="font-size: 2rem; color: var(--text-secondary);"></i>
+    </div>
+
+    <!-- 首個重點專案介紹 -->
+    <div class="project-showcase">
+      <div class="project-info">
+        <p class="project-tag sans-font">FEATURED PROJECT</p>
+        <h3 class="title-font project-title">Fillip 應用程式</h3>
+        <p class="project-desc">
+          一個專為特定需求打造的工具。結合了洗鍊的使用者介面與極簡的互動體驗，力求在每個細節中達到平衡，幫助您更專注地完成任務。
+        </p>
+        <a href="https://apps.apple.com/tw/app/fillip/id6759831971" class="view-all sans-font project-app-store-link" target="_blank" rel="noopener noreferrer" style="display:inline-flex;">App Store 下載 <i class="ph ph-arrow-right"></i></a>
+      </div>
+      <a href="https://apps.apple.com/tw/app/fillip/id6759831971" class="project-app-store-link project-store-image-link" target="_blank" rel="noopener noreferrer" aria-label="Fillip — App Store">
+        <div class="project-image-wrapper">
+          <img src="圖片/fillip-app.jpeg" alt="fillip App Screenshot" class="app-thumbnail">
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Articles 區塊 (新第三頁)：最新文章串 -->
+  <section class="articles-section container" id="articles">
+    <div class="section-header">
+      <div>
+        <h2 class="title-font section-title">最新文章串</h2>
+        <p class="section-subtitle">逐篇疊加的思緒與筆記。</p>
+      </div>
+      <a href="articles.html" class="view-all sans-font">所有文章總覽 <i class="ph ph-arrow-right"></i></a>
+    </div>
+
+    <!-- 主頁上的文章列表模式 (Feed Style) -->
+    <div class="article-feed">
+      <a href="articles.html" class="article-row">
+        <div class="article-row-content">
+          <h3 class="title-font article-row-title">如何利用 AI Prompt 系統化提升開發效率</h3>
+          <p class="article-row-meta sans-font">2026年3月27日 · AI 實驗室</p>
+        </div>
+        <i class="ph ph-arrow-right" style="color: var(--text-secondary); font-size:1.5rem;"></i>
+      </a>
+
+      <a href="articles.html" class="article-row">
+        <div class="article-row-content">
+          <h3 class="title-font article-row-title">前端動畫美學：完美柔順的畫布特效</h3>
+          <p class="article-row-meta sans-font">2026年2月15日 · 開發日誌</p>
+        </div>
+        <i class="ph ph-arrow-right" style="color: var(--text-secondary); font-size:1.5rem;"></i>
+      </a>
+      
+      <!-- 佔位方塊，未來新增文章時可依樣往下疊加 -->
+      <a href="articles.html" class="article-row" style="opacity: 0.5;">
+        <div class="article-row-content">
+          <h3 class="title-font article-row-title">即將發布的新文章...</h3>
+          <p class="article-row-meta sans-font">Coming Soon</p>
+        </div>
+        <i class="ph ph-clock" style="color: var(--text-secondary); font-size:1.5rem;"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- 共用頁尾 (包含 Modal 等) -->
+  <div id="layout-footer"></div>
+
+  <script src="content/zh-TW.js"></script>
+  <script src="components.js"></script>
+  <script src="content/apply-page-content.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

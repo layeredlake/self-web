@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-page="articles">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章日誌 | 日誌集</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+  <div id="layout-canvas"></div>
+  <div id="layout-header"></div>
+
+  <section class="articles-section container" id="articles" style="padding-top: 20vh; min-height: 80vh;">
+    <div class="section-header">
+      <div>
+        <h2 class="title-font section-title">文章日誌</h2>
+        <p class="section-subtitle">未來這裡會存放所有關於技術、AI、開發與隨筆的文章列表。</p>
+      </div>
+    </div>
+
+    <div class="article-grid">
+      <a href="#" class="article-card">
+        <div class="article-content">
+          <h3 class="title-font article-title">預設文章標題</h3>
+          <p class="article-meta sans-font">即將發布</p>
+        </div>
+      </a>
+      <a href="#" class="article-card">
+        <div class="article-content">
+          <h3 class="title-font article-title">開發者的日常：撰寫高品質語法</h3>
+          <p class="article-meta sans-font">開發日誌</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <div id="layout-footer"></div>
+
+  <script src="content/zh-TW.js"></script>
+  <script src="components.js"></script>
+  <script src="content/apply-page-content.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
