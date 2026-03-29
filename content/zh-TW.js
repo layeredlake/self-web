@@ -28,7 +28,7 @@ window.SITE_CONTENT = {
     body:
       "如果您喜歡我，我的創作，或是我描述的未來，歡迎透過以下方式贊助一杯咖啡，這會成為我持續創作的動力！",
     /** 收款 QR 圖檔路徑（頁首列與贊助彈窗共用） */
-    qrImageSrc: "圖片/qr.ioi.tw-3.png",
+    qrImageSrc: "圖片/58904.jpg",
     qrAlt: "掃描 QR Code 收款／轉帳",
     /** 若未設定 qrImageSrc，彈窗內會顯示此提示 */
     qrPlaceholder: "[ 請設定 qrImageSrc 圖檔路徑 ]",
